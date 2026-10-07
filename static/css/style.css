@@ -2015,3 +2015,167 @@ h1, h2, h3, h4, h5, h6 {
 .package-card.hover-card {
     /* Herda os estilos de hover-card */
 }
+
+/* ===== SÓCIOS ===== */
+.partners-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--anti-flash-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.partner-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border: 1px solid rgba(204, 160, 0, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.partner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(204, 160, 0, 0.14), 0 0 20px rgba(204, 160, 0, 0.06);
+    border-color: rgba(204, 160, 0, 0.35);
+}
+
+.partner-photo {
+    height: 340px;
+    background: linear-gradient(135deg, var(--prussian-blue) 0%, #002233 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.partner-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 50, 73, 0.28), transparent 45%);
+    pointer-events: none;
+}
+
+.partner-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.partner-initials span {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(204, 160, 0, 0.65);
+    color: var(--satin-sheen-gold);
+    font-family: var(--font-title);
+    font-size: 2.4rem;
+    letter-spacing: 0.05em;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.partner-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.partner-role {
+    display: block;
+    color: var(--satin-sheen-gold);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.45rem;
+}
+
+.partner-content h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.partner-content p {
+    color: var(--eerie-black);
+    opacity: 0.75;
+    font-family: var(--font-body);
+    font-size: 0.93rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.partner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--prussian-blue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.partner-link i {
+    color: var(--satin-sheen-gold);
+    font-size: 1.1rem;
+}
+
+.partner-link:hover {
+    color: var(--satin-sheen-gold);
+}
+
+/* ===== RESPONSIVIDADE DOS SÓCIOS ===== */
+@media (max-width: 1024px) {
+    .partners-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .partner-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 560px;
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .partner-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .partner-photo {
+        height: 360px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-photo {
+        height: 330px;
+    }
+
+    .partner-content {
+        padding: 1.5rem;
+    }
+}
+
